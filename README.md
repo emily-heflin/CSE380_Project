@@ -19,6 +19,9 @@ Calculates fares from prices in listings and records simulated payments. Users c
 
 ## Architecture
 Containerization: Each service has its own Dockerfile and runs in its own container.
+
 Orchestration: One docker-compose.yml starts everything on a shared network, so services reach each other by name.
+
 Data storage: Each service owns its own database.
+
 Communication: Synchronous HTTP/JSON calls between services using the requests library.
