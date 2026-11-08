@@ -1,0 +1,37 @@
+services:
+  user:
+    build:
+      context: .
+      dockerfile: users/Dockerfile.users
+    ports:
+      - "9000:5000"
+    networks:
+      - heflinem
+  availability:
+    build:
+      context: .
+      dockerfile: availability/Dockerfile.availability
+    ports:
+      - "9001:5000"
+    networks:
+      - heflinem
+  reservations:
+    build:
+      context: .
+      dockerfile: reservations/Dockerfile.reservations
+    ports:
+      - "9002:5000"
+    networks:
+      - heflinem
+  payments:
+    build:
+      context: .
+      dockerfile: payments/Dockerfile.payments
+    ports:
+      - "9003:5000"
+    networks:
+      - heflinem
+
+networks:
+  heflinem:
+    driver: bridge

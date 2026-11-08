@@ -1,0 +1,13 @@
+FROM python:latest
+
+COPY availability/app.py /app/
+COPY availability/listings.sql /app/
+COPY key.txt /app/
+
+WORKDIR /app
+
+RUN pip install flask flask-cors requests
+
+ENV FLASK_APP=app.py
+
+CMD ["flask", "run", "--host=0.0.0.0"]

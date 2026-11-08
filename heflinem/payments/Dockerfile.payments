@@ -1,0 +1,13 @@
+FROM python:latest
+
+COPY payments/app.py /app/
+COPY payments/payments.sql /app/
+COPY key.txt /app/
+
+WORKDIR /app
+
+RUN pip install flask flask-cors requests
+
+ENV FLASK_APP=app.py
+
+CMD ["flask", "run", "--debug", "--host=0.0.0.0"]
